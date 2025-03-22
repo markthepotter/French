@@ -25,14 +25,15 @@ def generate_options(correct, is_french_to_english):
 
 def update_word():
     global current_word, options, is_french_to_english, correct_answer
+    
     is_french_to_english = random.choice([True, False])
     french, english = get_random_word()
     
     if is_french_to_english:
-        current_word = french
+        current_word = f"French: {french}"
         correct_answer = english
     else:
-        current_word = english
+        current_word = f"English: {english}"
         correct_answer = french
     
     options = generate_options(correct_answer, is_french_to_english)
