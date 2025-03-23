@@ -10,8 +10,9 @@ import sqlite3
 def create_database():
     conn = sqlite3.connect("quiz.db")
     cursor = conn.cursor()
+    cursor.execute("DROP TABLE IF EXISTS words")
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS words (
+        CREATE TABLE words (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             french TEXT NOT NULL,
             english TEXT NOT NULL
